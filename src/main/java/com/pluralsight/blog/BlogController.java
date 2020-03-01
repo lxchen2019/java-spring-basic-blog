@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class BlogController {
 
     private PostRepository postRepository;
@@ -20,12 +20,12 @@ public class BlogController {
     }
 
     @RequestMapping("/")
-    public List<Post> listPosts(ModelMap modelMap) {
+    public String listPosts(ModelMap modelMap) {
         // modelMap.put("title", "Blog Post 1");
 
         List<Post> allPosts = postRepository.getAllPosts();
 
         modelMap.put("posts", allPosts);
-        return allPosts;
+        return "home";
     }
 }
