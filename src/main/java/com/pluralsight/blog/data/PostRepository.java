@@ -16,6 +16,10 @@ public class PostRepository {
     }
 
     public Post findById(Long id) {
+        for (Post p: ALL_POSTS) {
+            if (p.getId() == id)
+                return p;
+        }
         return null;
     }
 
@@ -54,4 +58,5 @@ public class PostRepository {
                     "When a stranger passes us a top secret SD card the adventure begins.  Jason Bourne says, \"Hi\".",
                     "Sarah Holderness", new Date())
     ));
+
 }
